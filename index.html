@@ -1,0 +1,33 @@
+<html>
+<header>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io()
+
+        socket.on('newFeed', (data) => {
+            document.getElementById('container').innerHTML += 
+                `<div style='border-width: 2px'>
+                    ${data}
+                </div>`
+        })
+    </script>
+</header>
+
+<body>
+    <div>
+        <input type='text' id='message-input' />
+        <button id='post'>Post</button>
+    </div>
+    <div id='container'></div>
+
+    <script>
+        document.getElementById('post').onclick = (e) => {
+            console.log('Post new feed')
+            const message = document.getElementById('message-input').value
+
+            socket.emit('postFeed', message)
+        }
+    </script>
+</body>
+
+</html>

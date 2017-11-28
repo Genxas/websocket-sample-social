@@ -1,0 +1,23 @@
+{
+  "name": "websocket-sample-social",
+  "version": "1.0.0",
+  "description": "Social feed with socket.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Genxas/websocket-sample-social.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Genxas/websocket-sample-social/issues"
+  },
+  "homepage": "https://github.com/Genxas/websocket-sample-social#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  }
+}
