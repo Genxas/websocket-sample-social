@@ -1,24 +1,41 @@
+<!DOCTYPE html>
 <html>
 <header>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io()
 
         socket.on('newFeed', (data) => {
-            document.getElementById('container').innerHTML += 
-                `<div style='border-width: 2px'>
-                    ${data}
+            document.getElementById('container').innerHTML =
+                `<div class="card">
+                    <div class="card-content">
+                        ${data}
+                    </div>
                 </div>`
+                + document.getElementById('container').innerHTML
         })
     </script>
 </header>
 
 <body>
-    <div>
-        <input type='text' id='message-input' />
-        <button id='post'>Post</button>
+    <div class="section">
+        <div class="field has-addons has-addons-centered">
+            <div class="control is-expanded">
+                <input class="input" type='text' id='message-input' />
+
+            </div>
+            <div class="control">
+                <button class="button is-link" id='post'>Post</button>
+            </div>
+        </div>
+
+        <div id='container'></div>
     </div>
-    <div id='container'></div>
 
     <script>
         document.getElementById('post').onclick = (e) => {

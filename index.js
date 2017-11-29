@@ -20,7 +20,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('postFeed', (data) => {
-        socket.emit('newFeed', data)
+        io.sockets.emit('newFeed', data)
     })
 })
 
